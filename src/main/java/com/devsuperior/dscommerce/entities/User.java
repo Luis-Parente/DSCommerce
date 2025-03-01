@@ -124,6 +124,15 @@ public class User implements UserDetails {
 		roles.remove(role);
 	}
 
+	public Boolean hasSpecificRole(String roleName) {
+		for (Role role : roles) {
+			if (role.getAuthority().equals(roleName)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public Boolean hasRole(String roleName) {
 		for (Role role : roles) {
 			if (role.getAuthority().equals(roleName)) {
