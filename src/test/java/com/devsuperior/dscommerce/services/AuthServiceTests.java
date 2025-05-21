@@ -7,7 +7,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.modelmapper.internal.util.Assert;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.devsuperior.dscommerce.entities.User;
@@ -46,7 +45,7 @@ public class AuthServiceTests {
 			service.validateSelfOrAdmin(userId);
 		});
 	}
-	
+
 	@Test
 	public void validateSelfOrAdminShouldDoNothingWhenSelfLogged() {
 		Mockito.when(userService.authenticated()).thenReturn(selfClient);
@@ -57,7 +56,7 @@ public class AuthServiceTests {
 			service.validateSelfOrAdmin(userId);
 		});
 	}
-	
+
 	@Test
 	public void validateSelfOrAdminShouldThrowForbiddenExceptionWhenOtherClientLogged() {
 		Mockito.when(userService.authenticated()).thenReturn(selfClient);
