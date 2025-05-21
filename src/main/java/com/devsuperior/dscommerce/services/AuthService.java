@@ -14,7 +14,10 @@ public class AuthService {
 
 	public void validateSelfOrAdmin(Long userId) {
 		User me = service.authenticated();
-		if (!me.hasSpecificRole("ROLE_ADMIN") && !me.getId().equals(userId)) {
+		if (me.hasSpecificRole("ROLE_ADMIN")){
+			return;
+		}
+		if (!me.getId().equals(userId)){
 			throw new ForbiddenException("Access denied");
 		}
 	}
