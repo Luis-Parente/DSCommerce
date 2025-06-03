@@ -76,17 +76,14 @@ public class ProductServiceTests {
 		Mockito.when(repository.save(any())).thenReturn(product);
 
 		Mockito.when(repository.getReferenceById(existingId)).thenReturn(product);
-
 		Mockito.when(repository.getReferenceById(nonExistingId)).thenThrow(EntityNotFoundException.class);
 
 		Mockito.when(repository.existsById(existingId)).thenReturn(true);
 		Mockito.when(repository.existsById(dependentId)).thenReturn(true);
 		Mockito.when(repository.existsById(nonExistingId)).thenReturn(false);
-		
+
 		Mockito.doNothing().when(repository).deleteById(existingId);
 		Mockito.doThrow(DataIntegrityViolationException.class).when(repository).deleteById(dependentId);
-		
-
 
 	}
 
@@ -109,25 +106,11 @@ public class ProductServiceTests {
 	}
 
 	@Test
-	public void searchByNameShouldReturnPagedProductMinDTO() {
+	public void findAllShouldReturnPagedProductMinDTO() {
 		Pageable pageable = PageRequest.of(0, 12);
 		String name = "PlayStation 5";
 
-		Page<ProductMinDTO> result = service.searchByName(name, pageable);
-
-		Assertions.assertNotNull(result);
-
-		Assertions.assertEquals(result.getSize(), 1);
-
-		Assertions.assertEquals(result.iterator().next().getName(), productName);
-
-	}
-
-	@Test
-	public void findAllShouldReturnPagedProductMinDTO() {
-		Pageable pageable = PageRequest.of(0, 12);
-
-		Page<ProductMinDTO> result = service.findAll(pageable);
+		Page<ProductMinDTO> result = service.findAll(name, pageable);
 
 		Assertions.assertNotNull(result);
 
@@ -162,26 +145,26 @@ public class ProductServiceTests {
 		});
 
 	}
-	
+
 	@Test
 	public void deleteShouldDoNothingWhenIdExists() {
 		Assertions.assertDoesNotThrow(() -> {
 			service.delete(existingId);
 		});
 	}
-	
+
 	@Test
 	public void deleteShouldThrowResourceNotFoundExceptionWhenIdDoesNotExists() {
 		Assertions.assertThrows(ResourceNotFoundException.class, () -> {
 			service.delete(nonExistingId);
 		});
 	}
-	
+
 	@Test
 	public void deleteShouldThrowDataBaseExceptionWhenDependentId() {
 		Assertions.assertThrows(DataBaseException.class, () -> {
 			service.delete(dependentId);
 		});
 	}
-	
+
 }
