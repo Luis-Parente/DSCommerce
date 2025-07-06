@@ -8,3 +8,6 @@
 ## ✅ Requirements
 
 ## 🛠️ Installation & Execution
+
+
+para acessar a documentacao acesse http://localhost:8080/swagger-ui/index.html
