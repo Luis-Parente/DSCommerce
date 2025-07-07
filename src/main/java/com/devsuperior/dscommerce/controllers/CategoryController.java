@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.devsuperior.dscommerce.dto.CategoryDTO;
 import com.devsuperior.dscommerce.services.CategoryService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 @RestController
 @RequestMapping(value = "/categories")
 public class CategoryController {
@@ -18,7 +21,9 @@ public class CategoryController {
 	@Autowired
 	private CategoryService service;
 
-	@GetMapping
+	@Operation(description = "Get all catgories", summary = "List all categories", responses = {
+			@ApiResponse(description = "Ok", responseCode = "200"), })
+	@GetMapping(produces = "application/json")
 	public ResponseEntity<List<CategoryDTO>> findAll() {
 		List<CategoryDTO> dto = service.findAll();
 		return ResponseEntity.ok(dto);

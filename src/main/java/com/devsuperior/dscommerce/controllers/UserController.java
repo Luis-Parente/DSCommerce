@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.devsuperior.dscommerce.dto.UserDTO;
 import com.devsuperior.dscommerce.services.UserService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
@@ -17,8 +20,11 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
+	@Operation(description = "Get user logged", summary = "Get user logged", responses = {
+			@ApiResponse(description = "Ok", responseCode = "200"),
+			@ApiResponse(description = "Unauthorized", responseCode = "401"), })
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')")
-	@GetMapping(value = "/me")
+	@GetMapping(value = "/me", produces = "application/json")
 	public ResponseEntity<UserDTO> getMe() {
 		UserDTO dto = service.getMe();
 		return ResponseEntity.ok(dto);
