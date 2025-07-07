@@ -16,9 +16,9 @@ import io.swagger.v3.oas.models.info.License;
 public class OpenApiConfig {
 
 	@Bean
-	public OpenAPI dsmovieAPI() {
+	public OpenAPI dsCommerceAPI() {
 		return new OpenAPI()
-				.info(new Info().title("DSCommercee API").description("DSCommerce Reference Project").version("v0.0.1")
+				.info(new Info().title("DSCommerce API").description("DSCommerce Reference Project").version("v0.0.1")
 						.license(new License().name("Apache 2.0").url("https://github.com/Luis-Parente/DSCommerce")));
 	}
 }
