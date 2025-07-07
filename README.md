@@ -30,7 +30,7 @@ cd dscommerce/dscommerce
 ````bash
 ./mvnw spring-boot:run
 ````
-###Once running, the following resources will be available:
+### Once running, the following resources will be available:
 
 - API Base URL: http://localhost:8080
 - H2 Console: http://localhost:8080/h2-console
