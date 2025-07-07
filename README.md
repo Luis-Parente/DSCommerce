@@ -8,7 +8,7 @@ DSCommerce is a backend REST API for an e-commerce platform, developed using Jav
 - Product and category management
 - User registration
 - Order processing
-- Role-based authorization (if configured)
+- Role-based authorization
 - Exception handling
 - DTO pattern and data validation
 
