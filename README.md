@@ -19,7 +19,7 @@ DSCommerce is a backend REST API for an e-commerce platform, developed using Jav
 ## 🛠️ Installation & Execution
 ### 1.Clone the repository:
 ````bash
-git clone https://github.com/YOUR_USERNAME/dscommerce.git
+git clone https://github.com/Luis-Parente/DSCommerce
 cd dscommerce/dscommerce
 ````
 ### 2.Build the project using the Maven Wrapper:
