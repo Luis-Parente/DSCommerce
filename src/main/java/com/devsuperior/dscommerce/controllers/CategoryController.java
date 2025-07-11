@@ -13,9 +13,11 @@ import com.devsuperior.dscommerce.services.CategoryService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping(value = "/categories")
+@Tag(name = "Categories", description = "Controller for Categories")
 public class CategoryController {
 
 	@Autowired

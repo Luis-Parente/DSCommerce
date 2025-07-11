@@ -19,10 +19,12 @@ import com.devsuperior.dscommerce.services.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/orders")
+@Tag(name = "Orders", description = "Controller for Orders")
 public class OrderController {
 
 	@Autowired

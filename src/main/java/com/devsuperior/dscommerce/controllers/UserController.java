@@ -12,9 +12,11 @@ import com.devsuperior.dscommerce.services.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping(value = "/users")
+@Tag(name = "Users", description = "Controller for Users")
 public class UserController {
 
 	@Autowired
